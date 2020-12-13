@@ -1,12 +1,12 @@
 .PHONY : release install clean
 
-OUT = delay
+OUT = bufferdelay
 OBJ = main.o dtbuf.o time_ms.o
 CFLAGS += -Wall -g -O3
 
-release: delay
+release: bufferdelay
 
-delay: $(OBJ)
+bufferdelay: $(OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $(OUT) $(OBJ)
 
 $(OBJ): dtbuf.h time_ms.h
