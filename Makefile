@@ -1,4 +1,4 @@
-.PHONY : release install clean
+.PHONY : release install clean uninstall
 
 OUT = bufferdelay
 OBJ = main.o dtbuf.o time_ms.o
@@ -28,3 +28,9 @@ clean:
 install: release
 	mkdir -p $(DESTDIR)/usr/bin
 	install $(OUT) $(DESTDIR)/usr/bin
+	mkdir -p /usr/local/share/man/man1
+	cp bufferdelay.1 /usr/local/share/man/man1/bufferdelay.1
+
+uninstall:
+	rm -f $(DESTDIR)/usr/bin/$(OUT)
+	rm -f /usr/local/share/man/man1/bufferdelay.1
